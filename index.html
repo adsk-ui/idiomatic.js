@@ -44,6 +44,7 @@
 <li><a href="#cond">Conditional Evaluation</a></li>
 <li><a href="#practical">Practical Style</a></li>
 <li><a href="#naming">Naming</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
 <li><a href="#misc">Misc</a></li>
 <li><a href="#native">Native &amp; Host Objects</a></li>
 <li><a href="#comments">Comments</a></li>
@@ -1028,9 +1029,32 @@ object.hasOwnProperty( prop )
 <p><code>thisArg</code> can be used with <code>Array.prototype.every</code>, <code>Array.prototype.forEach</code>, <code>Array.prototype.some</code>, <code>Array.prototype.map</code>, <code>Array.prototype.filter</code></p>
 </li>
 <li>
-<p>Dependency Injection</p>
+<p><a name="dependency-injection">Dependency Injection</a></p>
 
-<p>When authoring AMD-style modules (as with RequireJS), long lists of dependencies should be written using <a href="http://requirejs.org/docs/whyamd.html#sugar">simplified CommonJS wrapping</a></p>
+<p>When authoring AMD-style modules (as with RequireJS), long lists of dependencies should be written using <a href="http://requirejs.org/docs/whyamd.html#sugar">simplified CommonJS wrapping</a> to promote readability.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// 7.A.1.1</span>
+<span class="c1">// Bad</span>
+<span class="nx">define</span><span class="p">([</span> <span class="s2">"require"</span><span class="p">,</span> <span class="s2">"jquery"</span><span class="p">,</span> <span class="s2">"blade/object"</span><span class="p">,</span> <span class="s2">"blade/fn"</span><span class="p">,</span> <span class="s2">"rdapi"</span><span class="p">,</span>
+     <span class="s2">"oauth"</span><span class="p">,</span> <span class="s2">"blade/jig"</span><span class="p">,</span> <span class="s2">"blade/url"</span><span class="p">,</span> <span class="s2">"dispatch"</span><span class="p">],</span>
+<span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">,</span>   <span class="nx">$</span><span class="p">,</span>        <span class="nx">object</span><span class="p">,</span>         <span class="nx">fn</span><span class="p">,</span>         <span class="nx">rdapi</span><span class="p">,</span>
+      <span class="nx">oauth</span><span class="p">,</span>   <span class="nx">jig</span><span class="p">,</span>         <span class="nx">url</span><span class="p">,</span>         <span class="nx">dispatch</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">});</span>
+
+<span class="c1">// Good</span>
+<span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"jquery"</span><span class="p">),</span>        
+    <span class="nx">object</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"blade/object""),         </span>
+<span class="s2">    fn = require("</span><span class="nx">blade</span><span class="o">/</span><span class="nx">fn</span><span class="s2">"),         </span>
+<span class="s2">    rdapi = require("</span><span class="nx">rdapi</span><span class="s2">"),</span>
+<span class="s2">    oauth = require("</span><span class="nx">oauth</span><span class="s2">"),   </span>
+<span class="s2">    jig = require("</span><span class="nx">blade</span><span class="o">/</span><span class="nx">jig</span><span class="s2">"),         </span>
+<span class="s2">    url = require("</span><span class="nx">blade</span><span class="o">/</span><span class="nx">url</span><span class="s2">"),         </span>
+<span class="s2">    dispatch = require("</span><span class="nx">dispatch</span><span class="err">"</span><span class="p">);</span>
+
+<span class="p">});</span>
+</pre></div>
 </li>
 <li>
 <p><a name="misc">Misc</a></p>
@@ -1046,7 +1070,7 @@ object.hasOwnProperty( prop )
 <a href="https://github.com/rwldrn/idiomatic.js/issues/13">https://github.com/rwldrn/idiomatic.js/issues/13</a></p>
 
 <div class="highlight highlight-javascript"><pre>
-<span class="c1">// 7.A.1.1</span>
+<span class="c1">// 8.A.1.1</span>
 <span class="c1">// An example switch statement</span>
 
 <span class="k">switch</span><span class="p">(</span> <span class="nx">foo</span> <span class="p">)</span> <span class="p">{</span>
@@ -1061,7 +1085,7 @@ object.hasOwnProperty( prop )
     <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// 7.A.1.2</span>
+<span class="c1">// 8.A.1.2</span>
 <span class="c1">// A alternate approach that supports composability and reusability is to</span>
 <span class="c1">// use an object to store 'cases' and a function to delegate:</span>
 
@@ -1108,7 +1132,7 @@ object.hasOwnProperty( prop )
   <span class="k">return</span> <span class="nx">delegate</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">args</span> <span class="p">);</span>
 <span class="p">};</span>
 
-<span class="c1">// 7.A.1.3</span>
+<span class="c1">// 8.A.1.3</span>
 <span class="c1">// Put the API in 7.A.1.2 to work:</span>
 
 <span class="nx">delegator</span><span class="p">(</span> <span class="s1">'alpha'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
