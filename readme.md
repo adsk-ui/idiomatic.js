@@ -12,6 +12,7 @@
  * [Conditional Evaluation](#cond)
  * [Practical Style](#practical)
  * [Naming](#naming)
+ * [Dependency Injection](#dependency-injection)
  * [Misc](#misc)
  * [Native & Host Objects](#native)
  * [Comments](#comments)
@@ -24,11 +25,11 @@
 ## Idiomatic Style Manifesto
 
 
-1. <a name="whitespace">Whitespace</a>
+1. <a name='whitespace'>Whitespace</a>
   - Never mix spaces and tabs.
   - When beginning a project, before you write any code, choose between soft indents (spaces) or real tabs, consider this **law**.
-      - For readability, I always recommend setting your editor's indent size to two characters &mdash; this means two spaces or two spaces representing a real tab.
-  - If your editor supports it, always work with the "show invisibles" setting turned on. The benefits of this practice are:
+      - For readability, set your editor's indent size to two characters &mdash; this means two spaces or two spaces representing a real tab.
+  - If your editor supports it, always work with the 'show invisibles' setting turned on. The benefits of this practice are:
       - Enforced consistency
       - Eliminating end of line whitespace
       - Eliminating blank line whitespace
@@ -36,7 +37,7 @@
   - Use [Editorconfig](http://editorconfig.org/) when possible.  It supports most IDEs and handles most whitespace settings.
 
 
-2. <a name="spacing">Beautiful Syntax</a>
+2. <a name='spacing'>Beautiful Syntax</a>
 
     A. Parens, Braces, Linebreaks
 
@@ -109,7 +110,7 @@
 
     // 2.B.1.1
     // Variables
-    var foo = "bar",
+    var foo = 'bar',
       num = 1,
       undef;
 
@@ -123,19 +124,19 @@
     // and keeps your declaration list free of clutter (also saves a few keystrokes)
 
     // Bad
-    var foo = "";
-    var bar = "";
+    var foo = '';
+    var bar = '';
     var qux;
 
     // Good
-    var foo = "",
-      bar = "",
+    var foo = '',
+      bar = '',
       qux;
 
     // or..
     var // Comment on these
-    foo = "",
-    bar = "",
+    foo = '',
+    bar = '',
     quux;
 
     // 2.B.1.3
@@ -147,13 +148,13 @@
 
       // some statements here
 
-      var bar = "",
+      var bar = '',
         qux;
     }
 
     // Good
     function foo() {
-      var bar = "",
+      var bar = '',
         qux;
 
       // all statements after the variables declarations.
@@ -167,7 +168,7 @@
       let foo,
         bar;
       if (condition) {
-        bar = "";
+        bar = '';
         // statements
       }
     }
@@ -175,7 +176,7 @@
     function foo() {
       let foo;
       if (condition) {
-        let bar = "";
+        let bar = '';
         // statements
       }
     }
@@ -239,10 +240,10 @@
     }
 
     // Usage
-    var fooBar = new FooBar({ a: "alpha" });
+    var fooBar = new FooBar({ a: 'alpha' });
 
     fooBar.options;
-    // { a: "alpha" }
+    // { a: 'alpha' }
 
     ```
 
@@ -255,24 +256,24 @@
     // Functions with callbacks
     foo(function() {
       // Note there is no extra space between the first paren
-      // of the executing function call and the word "function"
+      // of the executing function call and the word 'function'
     });
 
     // Function accepting an array, no space
-    foo([ "alpha", "beta" ]);
+    foo([ 'alpha', 'beta' ]);
 
     // 2.C.1.2
     // Function accepting an object, no space
     foo({
-      a: "alpha",
-      b: "beta"
+      a: 'alpha',
+      b: 'beta'
     });
 
     // Single argument string literal, no space
-    foo("bar");
+    foo('bar');
 
     // Inner grouping parens, no space
-    if ( !("foo" in obj) ) {
+    if ( !('foo' in obj) ) {
 
     }
 
@@ -281,7 +282,6 @@
     D. Consistency Always Wins
 
     In sections 2.A-2.C, the whitespace rules are set forth as a recommendation with a simpler, higher purpose: consistency.
-    It's important to note that formatting preferences, such as "inner whitespace" should be considered optional, but only one style should exist across the entire source of your project.
 
     ```javascript
 
@@ -309,31 +309,31 @@
 
     E. Quotes
 
-    Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What **ABSOLUTELY MUST** be enforced is consistency. **Never mix quotes in the same project. Pick one style and stick with it.**
+    Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them, but for the sake of consistency **use single quotes**. Double quotes should only be used if nested within single quotes.
 
     F. End of Lines and Empty Lines
 
-    Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically.
+    Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically. **TO DO**
 
-3. <a name="type">Type Checking (Courtesy jQuery Core Style Guidelines)</a>
+3. <a name='type'>Type Checking (Courtesy jQuery Core Style Guidelines)</a>
 
     A. Actual Types
 
     String:
 
-        typeof variable === "string"
+        typeof variable === 'string'
 
     Number:
 
-        typeof variable === "number"
+        typeof variable === 'number'
 
     Boolean:
 
-        typeof variable === "boolean"
+        typeof variable === 'boolean'
 
     Object:
 
-        typeof variable === "object"
+        typeof variable === 'object'
 
     Array:
 
@@ -356,7 +356,7 @@
 
       Global Variables:
 
-        typeof variable === "undefined"
+        typeof variable === 'undefined'
 
       Local Variables:
 
@@ -366,7 +366,7 @@
 
         object.prop === undefined
         object.hasOwnProperty( prop )
-        "prop" in object
+        'prop' in object
 
     B. Coerced Types
 
@@ -376,7 +376,7 @@
 
     ```html
 
-    <input type="text" id="foo-input" value="1">
+    <input type='text' id='foo-input' value='1'>
 
     ```
 
@@ -389,13 +389,13 @@
     var foo = 0;
 
     // typeof foo;
-    // "number"
+    // 'number'
     ...
 
     // Somewhere later in your code, you need to update `foo`
     // with a new value derived from an input element
 
-    foo = document.getElementById("foo-input").value;
+    foo = document.getElementById('foo-input').value;
 
     // If you were to test `typeof foo` now, the result would be `string`
     // This means that if you had logic that tested `foo` like:
@@ -406,18 +406,18 @@
 
     }
 
-    // `importantTask()` would never be evaluated, even though `foo` has a value of "1"
+    // `importantTask()` would never be evaluated, even though `foo` has a value of '1'
 
 
     // 3.B.1.2
 
     // You can preempt issues by using smart coercion with unary + or - operators:
 
-    foo = +document.getElementById("foo-input").value;
+    foo = +document.getElementById('foo-input').value;
     //    ^ unary + operator will convert its right side operand to a number
 
     // typeof foo;
-    // "number"
+    // 'number'
 
     if ( foo === 1 ) {
 
@@ -436,17 +436,17 @@
     // 3.B.2.1
 
     var number = 1,
-      string = "1",
+      string = '1',
       bool = false;
 
     number;
     // 1
 
-    number + "";
-    // "1"
+    number + '';
+    // '1'
 
     string;
-    // "1"
+    // '1'
 
     +string;
     // 1
@@ -463,8 +463,8 @@
     +bool;
     // 0
 
-    bool + "";
-    // "false"
+    bool + '';
+    // 'false'
     ```
 
 
@@ -472,13 +472,13 @@
     // 3.B.2.2
 
     var number = 1,
-      string = "1",
+      string = '1',
       bool = true;
 
     string === number;
     // false
 
-    string === number + "";
+    string === number + '';
     // true
 
     +string === number;
@@ -500,25 +500,25 @@
     ```javascript
     // 3.B.2.3
 
-    var array = [ "a", "b", "c" ];
+    var array = [ 'a', 'b', 'c' ];
 
-    !!~array.indexOf("a");
+    !!~array.indexOf('a');
     // true
 
-    !!~array.indexOf("b");
+    !!~array.indexOf('b');
     // true
 
-    !!~array.indexOf("c");
+    !!~array.indexOf('c');
     // true
 
-    !!~array.indexOf("d");
+    !!~array.indexOf('d');
     // false
 
-    // Note that the above should be considered "unnecessarily clever"
+    // Note that the above should be considered 'unnecessarily clever'
     // Prefer the obvious approach of comparing the returned value of
     // indexOf, like:
 
-    if ( array.indexOf( "a" ) >= 0 ) {
+    if ( array.indexOf( 'a' ) >= 0 ) {
       // ...
     }
     ```
@@ -568,7 +568,7 @@
 
 
 
-4. <a name="cond">Conditional Evaluation</a>
+4. <a name='cond'>Conditional Evaluation</a>
 
     ```javascript
 
@@ -593,7 +593,7 @@
     // 4.1.3
     // When only evaluating that a string is not empty,
     // instead of this:
-    if ( string !== "" ) ...
+    if ( string !== '' ) ...
 
     // ...evaluate truthiness, like this:
     if ( string ) ...
@@ -602,7 +602,7 @@
     // 4.1.4
     // When only evaluating that a string _is_ empty,
     // instead of this:
-    if ( string === "" ) ...
+    if ( string === '' ) ...
 
     // ...evaluate falsy-ness, like this:
     if ( !string ) ...
@@ -625,13 +625,13 @@
     // ...use negation to coerce a true evaluation
     if ( !foo ) ...
 
-    // ...Be careful, this will also match: 0, "", null, undefined, NaN
+    // ...Be careful, this will also match: 0, '', null, undefined, NaN
     // If you _MUST_ test for a boolean false, then use
     if ( foo === false ) ...
 
 
     // 4.1.7
-    // When only evaluating a ref that might be null or undefined, but NOT false, "" or 0,
+    // When only evaluating a ref that might be null or undefined, but NOT false, '' or 0,
     // instead of this:
     if ( foo === null || foo === undefined ) ...
 
@@ -639,7 +639,7 @@
     if ( foo == null ) ...
 
     // Remember, using == will match a `null` to BOTH `null` and `undefined`
-    // but not `false`, "" or 0
+    // but not `false`, '' or 0
     null == undefined
 
     ```
@@ -654,12 +654,12 @@
 
     // === does not coerce type, which means that:
 
-    "1" === 1;
+    '1' === 1;
     // false
 
     // == does coerce type, which means that:
 
-    "1" == 1;
+    '1' == 1;
     // true
 
 
@@ -670,15 +670,15 @@
     true, false
 
     // Truthy:
-    "foo", 1
+    'foo', 1
 
     // Falsy:
-    "", 0, null, undefined, NaN, void 0
+    '', 0, null, undefined, NaN, void 0
 
     ```
 
 
-5. <a name="practical">Practical Style</a>
+5. <a name='practical'>Practical Style</a>
 
     ```javascript
 
@@ -688,18 +688,18 @@
     (function( global ) {
       var Module = (function() {
 
-        var data = "secret";
+        var data = 'secret';
 
         return {
           // This is some boolean property
           bool: true,
           // Some string value
-          string: "a string",
+          string: 'a string',
           // An array property
           array: [ 1, 2, 3, 4 ],
           // An object property
           object: {
-            lang: "en-Us"
+            lang: 'en-Us'
           },
           getData: function() {
             // get the current value of `data`
@@ -759,7 +759,7 @@
 
 
 
-6. <a name="naming">Naming</a>
+6. <a name='naming'>Naming</a>
 
 
 
@@ -775,7 +775,7 @@
     function q(s) {
       return document.querySelectorAll(s);
     }
-    var i,a=[],els=q("#foo");
+    var i,a=[],els=q('#foo');
     for(i=0;i<els.length;i++){a.push(els[i]);}
     ```
 
@@ -794,7 +794,7 @@
 
     var idx = 0,
       elements = [],
-      matches = query("#foo"),
+      matches = query('#foo'),
       length = matches.length;
 
     for ( ; idx < length; idx++ ) {
@@ -876,7 +876,7 @@
       setInterval(function() {
 
         // Emit a throttled event
-        this.emit("event");
+        this.emit('event');
 
       }.bind(this), opts.freq || 100 );
     }
@@ -904,7 +904,7 @@
 
       setInterval(_.bind(function() {
 
-        this.emit("event");
+        this.emit('event');
 
       }, this), opts.freq || 100 );
     }
@@ -922,7 +922,7 @@
 
       setInterval( jQuery.proxy(function() {
 
-        this.emit("event");
+        this.emit('event');
 
       }, this), opts.freq || 100 );
     }
@@ -940,7 +940,7 @@
 
       setInterval( dojo.hitch( this, function() {
 
-        this.emit("event");
+        this.emit('event');
 
       }), opts.freq || 100 );
     }
@@ -966,7 +966,7 @@
 
       setInterval(function() {
 
-        self.emit("event");
+        self.emit('event');
 
       }, opts.freq || 100 );
     }
@@ -984,7 +984,7 @@
 
     var obj;
 
-    obj = { f: "foo", b: "bar", q: "qux" };
+    obj = { f: 'foo', b: 'bar', q: 'qux' };
 
     Object.keys( obj ).forEach(function( key ) {
 
@@ -996,15 +996,42 @@
 
     // Prints...
 
-    // "foo"
-    // "bar"
-    // "qux"
+    // 'foo'
+    // 'bar'
+    // 'qux'
 
     ```
 
     `thisArg` can be used with `Array.prototype.every`, `Array.prototype.forEach`, `Array.prototype.some`, `Array.prototype.map`, `Array.prototype.filter`
 
-7. <a name="misc">Misc</a>
+7. <a name='dependency-injection'>Dependency Injection</a>
+
+    When authoring AMD-style modules (as with RequireJS), long lists of dependencies should be written using [simplified CommonJS wrapping](http://requirejs.org/docs/whyamd.html#sugar) to promote readability.
+
+    ```javascript
+    // 7.A.1.1
+    // Bad
+    define([ 'require', 'jquery', 'blade/object', 'blade/fn', 'rdapi',
+         'oauth', 'blade/jig', 'blade/url', 'dispatch'],
+    function (require,   $,        object,         fn,         rdapi,
+          oauth,   jig,         url,         dispatch) {
+
+    });
+
+    // Good
+    define(function(require){
+        var $ = require('jquery'),        
+        object = require('blade/object'),         
+        fn = require('blade/fn'),         
+        rdapi = require('rdapi'),
+        oauth = require('oauth'),   
+        jig = require('blade/jig'),         
+        url = require('blade/url'),         
+        dispatch = require('dispatch');
+
+    });
+    ```
+8. <a name='misc'>Misc</a>
 
     This section will serve to illustrate ideas and concepts that should not be considered dogma, but instead exists to encourage questioning practices in an attempt to find better ways to do common JavaScript programming tasks.
 
@@ -1018,14 +1045,14 @@
 
     ```javascript
 
-    // 7.A.1.1
+    // 8.A.1.1
     // An example switch statement
 
     switch( foo ) {
-      case "alpha":
+      case 'alpha':
         alpha();
         break;
-      case "beta":
+      case 'beta':
         beta();
         break;
       default:
@@ -1033,9 +1060,9 @@
         break;
     }
 
-    // 7.A.1.2
+    // 8.A.1.2
     // A alternate approach that supports composability and reusability is to
-    // use an object to store "cases" and a function to delegate:
+    // use an object to store 'cases' and a function to delegate:
 
     var cases, delegator;
 
@@ -1044,17 +1071,17 @@
       alpha: function() {
         // statements
         // a return
-        return [ "Alpha", arguments.length ];
+        return [ 'Alpha', arguments.length ];
       },
       beta: function() {
         // statements
         // a return
-        return [ "Beta", arguments.length ];
+        return [ 'Beta', arguments.length ];
       },
       _default: function() {
         // statements
         // a return
-        return [ "Default", arguments.length ];
+        return [ 'Default', arguments.length ];
       }
     };
 
@@ -1080,11 +1107,11 @@
       return delegate.apply( null, args );
     };
 
-    // 7.A.1.3
+    // 8.A.1.3
     // Put the API in 7.A.1.2 to work:
 
-    delegator( "alpha", 1, 2, 3, 4, 5 );
-    // [ "Alpha", 5 ]
+    delegator( 'alpha', 1, 2, 3, 4, 5 );
+    // [ 'Alpha', 5 ]
 
     // Of course, the `case` key argument could easily be based
     // on some other arbitrary condition.
@@ -1095,24 +1122,24 @@
     someUserInput = 9;
 
     if ( someUserInput > 10 ) {
-      caseKey = "alpha";
+      caseKey = 'alpha';
     } else {
-      caseKey = "beta";
+      caseKey = 'beta';
     }
 
     // or...
 
-    caseKey = someUserInput > 10 ? "alpha" : "beta";
+    caseKey = someUserInput > 10 ? 'alpha' : 'beta';
 
     // And then...
 
     delegator( caseKey, someUserInput );
-    // [ "Beta", 1 ]
+    // [ 'Beta', 1 ]
 
     // And of course...
 
     delegator();
-    // [ "Default", 0 ]
+    // [ 'Default', 0 ]
 
 
     ```
@@ -1127,9 +1154,9 @@
       var ret;
 
       if ( foo ) {
-        ret = "foo";
+        ret = 'foo';
       } else {
-        ret = "quux";
+        ret = 'quux';
       }
       return ret;
     }
@@ -1139,15 +1166,15 @@
     function returnEarly( foo ) {
 
       if ( foo ) {
-        return "foo";
+        return 'foo';
       }
-      return "quux";
+      return 'quux';
     }
 
     ```
 
 
-8. <a name="native">Native & Host Objects</a>
+9. <a name='native'>Native & Host Objects</a>
 
     The basic principle here is:
 
@@ -1157,12 +1184,12 @@
 
     #### “Everything is Permitted: Extending Built-ins” by Andrew Dupont (JSConf2011, Portland, Oregon)
 
-    <iframe src="http://blip.tv/play/g_Mngr6LegI.html" width="480" height="346" frameborder="0" allowfullscreen></iframe><embed type="application/x-shockwave-flash" src="http://a.blip.tv/api.swf#g_Mngr6LegI" style="display:none"></embed>
+    <iframe src='http://blip.tv/play/g_Mngr6LegI.html' width='480' height='346' frameborder='0' allowfullscreen></iframe><embed type='application/x-shockwave-flash' src='http://a.blip.tv/api.swf#g_Mngr6LegI' style='display:none'></embed>
 
     http://blip.tv/jsconf/jsconf2011-andrew-dupont-everything-is-permitted-extending-built-ins-5211542
 
 
-9. <a name="comments">Comments</a>
+10. <a name='comments'>Comments</a>
 
     #### Single line above the code that is subject
     #### Multiline is good
@@ -1170,7 +1197,7 @@
     #### JSDoc style is good, but requires a significant time investment
 
 
-10. <a name="language">One Language Code</a>
+11. <a name='language'>One Language Code</a>
 
     Programs should be written in one language, whatever that language may be, as dictated by the maintainer or maintainers.
 
@@ -1214,17 +1241,12 @@ Any project that cites this document as its base style guide will not accept com
 
 ## All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
-### The following list outlines the practices that I use in all code that I am the original author of; contributions to projects that I have created should follow these guidelines.
-
-### I do not intend to impose my style preferences on other people's code or projects; if an existing common style exists, it should be respected.
-
-
-> ### "Arguments over style are pointless. There should be a style guide, and you should follow it"
+> ### 'Arguments over style are pointless. There should be a style guide, and you should follow it'
 >_Rebecca_ _Murphey_
 
 &nbsp;
 
-> ### "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
+> ### 'Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec.'
 >_Idan_ _Gazit_
 
 
@@ -1280,14 +1302,14 @@ The following should be considered 1) incomplete, and 2) *REQUIRED READING*. I d
 
 ### Build & Deployment Process
 
-Projects should always attempt to include some generic means by which source can be linted, tested and compressed in preparation for production use. For this task, [grunt](https://github.com/gruntjs/grunt) by Ben Alman is second to none and has officially replaced the "kits/" directory of this repo.
+Projects should always attempt to include some generic means by which source can be linted, tested and compressed in preparation for production use. For this task, [grunt](https://github.com/gruntjs/grunt) by Ben Alman is second to none and has officially replaced the 'kits/' directory of this repo.
 
 
 
 
 ### Test Facility
 
-Projects _must_ include some form of unit, reference, implementation or functional testing. Use case demos DO NOT QUALIFY as "tests". The following is a list of test frameworks, none of which are endorsed more than the other.
+Projects _must_ include some form of unit, reference, implementation or functional testing. Use case demos DO NOT QUALIFY as 'tests'. The following is a list of test frameworks, none of which are endorsed more than the other.
 
  * [QUnit](http://github.com/jquery/qunit)
  * [Jasmine](https://github.com/pivotal/jasmine)
@@ -1302,4 +1324,4 @@ Projects _must_ include some form of unit, reference, implementation or function
 ----------
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Principles of Writing Consistent, Idiomatic JavaScript</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/rwldrn/idiomatic.js" property="cc:attributionName" rel="cc:attributionURL">Rick Waldron and Contributors</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/rwldrn/idiomatic.js" rel="dct:source">github.com/rwldrn/idiomatic.js</a>.
+<a rel='license' href='http://creativecommons.org/licenses/by/3.0/deed.en_US'><img alt='Creative Commons License' style='border-width:0' src='http://i.creativecommons.org/l/by/3.0/80x15.png' /></a><br /><span xmlns:dct='http://purl.org/dc/terms/' property='dct:title'>Principles of Writing Consistent, Idiomatic JavaScript</span> by <a xmlns:cc='http://creativecommons.org/ns#' href='https://github.com/rwldrn/idiomatic.js' property='cc:attributionName' rel='cc:attributionURL'>Rick Waldron and Contributors</a> is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by/3.0/deed.en_US'>Creative Commons Attribution 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct='http://purl.org/dc/terms/' href='https://github.com/rwldrn/idiomatic.js' rel='dct:source'>github.com/rwldrn/idiomatic.js</a>.
