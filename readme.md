@@ -1021,13 +1021,13 @@
     // Good
     define(function(require){
         var $ = require('jquery'),        
-        object = require('blade/object'),         
-        fn = require('blade/fn'),         
-        rdapi = require('rdapi'),
-        oauth = require('oauth'),   
-        jig = require('blade/jig'),         
-        url = require('blade/url'),         
-        dispatch = require('dispatch');
+            object = require('blade/object'),         
+            fn = require('blade/fn'),         
+            rdapi = require('rdapi'),
+            oauth = require('oauth'),   
+            jig = require('blade/jig'),         
+            url = require('blade/url'),         
+            dispatch = require('dispatch');
 
     });
     ```
