@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Idiomatic.js by adsk-ui</title>
+    <title>Adsk Idiomatic.js by adsk-ui</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -15,8 +15,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Idiomatic.js</h1>
-        <p></p>
+        <h1>Adsk Idiomatic.js</h1>
+        <p>A Javascript Style Guide</p>
 
         <p class="view"><a href="https://github.com/adsk-ui/idiomatic.js">View the Project on GitHub <small>adsk-ui/idiomatic.js</small></a></p>
 
@@ -64,10 +64,10 @@
 <li>When beginning a project, before you write any code, choose between soft indents (spaces) or real tabs, consider this <strong>law</strong>.
 
 <ul>
-<li>For readability, I always recommend setting your editor's indent size to two characters — this means two spaces or two spaces representing a real tab.</li>
+<li>For readability, set your editor's indent size to two characters — this means two spaces or two spaces representing a real tab.</li>
 </ul>
 </li>
-<li>If your editor supports it, always work with the "show invisibles" setting turned on. The benefits of this practice are:
+<li>If your editor supports it, always work with the 'show invisibles' setting turned on. The benefits of this practice are:
 
 <ul>
 <li>Enforced consistency</li>
@@ -150,7 +150,7 @@
 <div class="highlight highlight-javascript"><pre>
 <span class="c1">// 2.B.1.1</span>
 <span class="c1">// Variables</span>
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">"bar"</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span>
   <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nx">undef</span><span class="p">;</span>
 
@@ -164,19 +164,19 @@
 <span class="c1">// and keeps your declaration list free of clutter (also saves a few keystrokes)</span>
 
 <span class="c1">// Bad</span>
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">qux</span><span class="p">;</span>
 
 <span class="c1">// Good</span>
-<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
   <span class="nx">qux</span><span class="p">;</span>
 
 <span class="c1">// or..</span>
 <span class="kd">var</span> <span class="c1">// Comment on these</span>
-<span class="nx">foo</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
-<span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
+<span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
 <span class="nx">quux</span><span class="p">;</span>
 
 <span class="c1">// 2.B.1.3</span>
@@ -188,13 +188,13 @@
 
   <span class="c1">// some statements here</span>
 
-  <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
     <span class="nx">qux</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// Good</span>
 <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>
     <span class="nx">qux</span><span class="p">;</span>
 
   <span class="c1">// all statements after the variables declarations.</span>
@@ -208,7 +208,7 @@
   <span class="kd">let</span> <span class="nx">foo</span><span class="p">,</span>
     <span class="nx">bar</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
     <span class="c1">// statements</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -216,7 +216,7 @@
 <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">foo</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">bar</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
     <span class="c1">// statements</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -279,10 +279,10 @@
 <span class="p">}</span>
 
 <span class="c1">// Usage</span>
-<span class="kd">var</span> <span class="nx">fooBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooBar</span><span class="p">({</span> <span class="nx">a</span><span class="o">:</span> <span class="s2">"alpha"</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">fooBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooBar</span><span class="p">({</span> <span class="nx">a</span><span class="o">:</span> <span class="s1">'alpha'</span> <span class="p">});</span>
 
 <span class="nx">fooBar</span><span class="p">.</span><span class="nx">options</span><span class="p">;</span>
-<span class="c1">// { a: "alpha" }</span>
+<span class="c1">// { a: 'alpha' }</span>
 
 </pre></div>
 
@@ -293,24 +293,24 @@
 <span class="c1">// Functions with callbacks</span>
 <span class="nx">foo</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Note there is no extra space between the first paren</span>
-  <span class="c1">// of the executing function call and the word "function"</span>
+  <span class="c1">// of the executing function call and the word 'function'</span>
 <span class="p">});</span>
 
 <span class="c1">// Function accepting an array, no space</span>
-<span class="nx">foo</span><span class="p">([</span> <span class="s2">"alpha"</span><span class="p">,</span> <span class="s2">"beta"</span> <span class="p">]);</span>
+<span class="nx">foo</span><span class="p">([</span> <span class="s1">'alpha'</span><span class="p">,</span> <span class="s1">'beta'</span> <span class="p">]);</span>
 
 <span class="c1">// 2.C.1.2</span>
 <span class="c1">// Function accepting an object, no space</span>
 <span class="nx">foo</span><span class="p">({</span>
-  <span class="nx">a</span><span class="o">:</span> <span class="s2">"alpha"</span><span class="p">,</span>
-  <span class="nx">b</span><span class="o">:</span> <span class="s2">"beta"</span>
+  <span class="nx">a</span><span class="o">:</span> <span class="s1">'alpha'</span><span class="p">,</span>
+  <span class="nx">b</span><span class="o">:</span> <span class="s1">'beta'</span>
 <span class="p">});</span>
 
 <span class="c1">// Single argument string literal, no space</span>
-<span class="nx">foo</span><span class="p">(</span><span class="s2">"bar"</span><span class="p">);</span>
+<span class="nx">foo</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">);</span>
 
 <span class="c1">// Inner grouping parens, no space</span>
-<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span><span class="s2">"foo"</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span><span class="s1">'foo'</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
 
 <span class="p">}</span>
 
@@ -318,8 +318,7 @@
 
 <p>D. Consistency Always Wins</p>
 
-<p>In sections 2.A-2.C, the whitespace rules are set forth as a recommendation with a simpler, higher purpose: consistency.
-It's important to note that formatting preferences, such as "inner whitespace" should be considered optional, but only one style should exist across the entire source of your project.</p>
+<p>In sections 2.A-2.C, the whitespace rules are set forth as a recommendation with a simpler, higher purpose: consistency.</p>
 
 <div class="highlight highlight-javascript"><pre>
 <span class="c1">// 2.D.1.1</span>
@@ -346,11 +345,11 @@ It's important to note that formatting preferences, such as "inner whitespace" s
 
 <p>E. Quotes</p>
 
-<p>Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them. What <strong>ABSOLUTELY MUST</strong> be enforced is consistency. <strong>Never mix quotes in the same project. Pick one style and stick with it.</strong></p>
+<p>Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them, but for the sake of consistency <strong>use single quotes</strong>. Double quotes should only be used if nested within single quotes.</p>
 
 <p>F. End of Lines and Empty Lines</p>
 
-<p>Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically.</p>
+<p>Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically. <strong>TO DO</strong></p>
 </li>
 <li>
 <p><a name="type">Type Checking (Courtesy jQuery Core Style Guidelines)</a></p>
@@ -359,22 +358,22 @@ It's important to note that formatting preferences, such as "inner whitespace" s
 
 <p>String:</p>
 
-<pre><code>typeof variable === "string"
+<pre><code>typeof variable === 'string'
 </code></pre>
 
 <p>Number:</p>
 
-<pre><code>typeof variable === "number"
+<pre><code>typeof variable === 'number'
 </code></pre>
 
 <p>Boolean:</p>
 
-<pre><code>typeof variable === "boolean"
+<pre><code>typeof variable === 'boolean'
 </code></pre>
 
 <p>Object:</p>
 
-<pre><code>typeof variable === "object"
+<pre><code>typeof variable === 'object'
 </code></pre>
 
 <p>Array:</p>
@@ -402,7 +401,7 @@ It's important to note that formatting preferences, such as "inner whitespace" s
 
 <p>Global Variables:</p>
 
-<pre><code>typeof variable === "undefined"
+<pre><code>typeof variable === 'undefined'
 </code></pre>
 
 <p>Local Variables:</p>
@@ -414,7 +413,7 @@ It's important to note that formatting preferences, such as "inner whitespace" s
 
 <pre><code>object.prop === undefined
 object.hasOwnProperty( prop )
-"prop" in object
+'prop' in object
 </code></pre>
 
 <p>B. Coerced Types</p>
@@ -424,7 +423,7 @@ object.hasOwnProperty( prop )
 <p>Given this HTML:</p>
 
 <div class="highlight highlight-html"><pre>
-<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"foo-input"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'text'</span> <span class="na">id=</span><span class="s">'foo-input'</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>
 
 </pre></div>
 
@@ -435,13 +434,13 @@ object.hasOwnProperty( prop )
 <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="c1">// typeof foo;</span>
-<span class="c1">// "number"</span>
+<span class="c1">// 'number'</span>
 <span class="p">...</span>
 
 <span class="c1">// Somewhere later in your code, you need to update `foo`</span>
 <span class="c1">// with a new value derived from an input element</span>
 
-<span class="nx">foo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"foo-input"</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'foo-input'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
 
 <span class="c1">// If you were to test `typeof foo` now, the result would be `string`</span>
 <span class="c1">// This means that if you had logic that tested `foo` like:</span>
@@ -452,18 +451,18 @@ object.hasOwnProperty( prop )
 
 <span class="p">}</span>
 
-<span class="c1">// `importantTask()` would never be evaluated, even though `foo` has a value of "1"</span>
+<span class="c1">// `importantTask()` would never be evaluated, even though `foo` has a value of '1'</span>
 
 
 <span class="c1">// 3.B.1.2</span>
 
 <span class="c1">// You can preempt issues by using smart coercion with unary + or - operators:</span>
 
-<span class="nx">foo</span> <span class="o">=</span> <span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"foo-input"</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="nx">foo</span> <span class="o">=</span> <span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'foo-input'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
 <span class="c1">//    ^ unary + operator will convert its right side operand to a number</span>
 
 <span class="c1">// typeof foo;</span>
-<span class="c1">// "number"</span>
+<span class="c1">// 'number'</span>
 
 <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="o">===</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
 
@@ -480,17 +479,17 @@ object.hasOwnProperty( prop )
 <span class="c1">// 3.B.2.1</span>
 
 <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">string</span> <span class="o">=</span> <span class="s2">"1"</span><span class="p">,</span>
+  <span class="nx">string</span> <span class="o">=</span> <span class="s1">'1'</span><span class="p">,</span>
   <span class="nx">bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
 <span class="nx">number</span><span class="p">;</span>
 <span class="c1">// 1</span>
 
-<span class="nx">number</span> <span class="o">+</span> <span class="s2">""</span><span class="p">;</span>
-<span class="c1">// "1"</span>
+<span class="nx">number</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+<span class="c1">// '1'</span>
 
 <span class="nx">string</span><span class="p">;</span>
-<span class="c1">// "1"</span>
+<span class="c1">// '1'</span>
 
 <span class="o">+</span><span class="nx">string</span><span class="p">;</span>
 <span class="c1">// 1</span>
@@ -507,20 +506,20 @@ object.hasOwnProperty( prop )
 <span class="o">+</span><span class="nx">bool</span><span class="p">;</span>
 <span class="c1">// 0</span>
 
-<span class="nx">bool</span> <span class="o">+</span> <span class="s2">""</span><span class="p">;</span>
-<span class="c1">// "false"</span>
+<span class="nx">bool</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+<span class="c1">// 'false'</span>
 </pre></div>
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// 3.B.2.2</span>
 
 <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">string</span> <span class="o">=</span> <span class="s2">"1"</span><span class="p">,</span>
+  <span class="nx">string</span> <span class="o">=</span> <span class="s1">'1'</span><span class="p">,</span>
   <span class="nx">bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
 <span class="nx">string</span> <span class="o">===</span> <span class="nx">number</span><span class="p">;</span>
 <span class="c1">// false</span>
 
-<span class="nx">string</span> <span class="o">===</span> <span class="nx">number</span> <span class="o">+</span> <span class="s2">""</span><span class="p">;</span>
+<span class="nx">string</span> <span class="o">===</span> <span class="nx">number</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
 <span class="c1">// true</span>
 
 <span class="o">+</span><span class="nx">string</span> <span class="o">===</span> <span class="nx">number</span><span class="p">;</span>
@@ -541,25 +540,25 @@ object.hasOwnProperty( prop )
 
 <div class="highlight highlight-javascript"><pre><span class="c1">// 3.B.2.3</span>
 
-<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span> <span class="p">];</span>
+<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span> <span class="p">];</span>
 
-<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span>
+<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
 <span class="c1">// true</span>
 
-<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"b"</span><span class="p">);</span>
+<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'b'</span><span class="p">);</span>
 <span class="c1">// true</span>
 
-<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span>
+<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'c'</span><span class="p">);</span>
 <span class="c1">// true</span>
 
-<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"d"</span><span class="p">);</span>
+<span class="o">!!~</span><span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'d'</span><span class="p">);</span>
 <span class="c1">// false</span>
 
-<span class="c1">// Note that the above should be considered "unnecessarily clever"</span>
+<span class="c1">// Note that the above should be considered 'unnecessarily clever'</span>
 <span class="c1">// Prefer the obvious approach of comparing the returned value of</span>
 <span class="c1">// indexOf, like:</span>
 
-<span class="k">if</span> <span class="p">(</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span> <span class="s2">"a"</span> <span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span> <span class="s1">'a'</span> <span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// ...</span>
 <span class="p">}</span>
 </pre></div>
@@ -631,7 +630,7 @@ object.hasOwnProperty( prop )
 <span class="c1">// 4.1.3</span>
 <span class="c1">// When only evaluating that a string is not empty,</span>
 <span class="c1">// instead of this:</span>
-<span class="k">if</span> <span class="p">(</span> <span class="nx">string</span> <span class="o">!==</span> <span class="s2">""</span> <span class="p">)</span> <span class="p">...</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nx">string</span> <span class="o">!==</span> <span class="s1">''</span> <span class="p">)</span> <span class="p">...</span>
 
 <span class="c1">// ...evaluate truthiness, like this:</span>
 <span class="k">if</span> <span class="p">(</span> <span class="nx">string</span> <span class="p">)</span> <span class="p">...</span>
@@ -640,7 +639,7 @@ object.hasOwnProperty( prop )
 <span class="c1">// 4.1.4</span>
 <span class="c1">// When only evaluating that a string _is_ empty,</span>
 <span class="c1">// instead of this:</span>
-<span class="k">if</span> <span class="p">(</span> <span class="nx">string</span> <span class="o">===</span> <span class="s2">""</span> <span class="p">)</span> <span class="p">...</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nx">string</span> <span class="o">===</span> <span class="s1">''</span> <span class="p">)</span> <span class="p">...</span>
 
 <span class="c1">// ...evaluate falsy-ness, like this:</span>
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">string</span> <span class="p">)</span> <span class="p">...</span>
@@ -663,13 +662,13 @@ object.hasOwnProperty( prop )
 <span class="c1">// ...use negation to coerce a true evaluation</span>
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">foo</span> <span class="p">)</span> <span class="p">...</span>
 
-<span class="c1">// ...Be careful, this will also match: 0, "", null, undefined, NaN</span>
+<span class="c1">// ...Be careful, this will also match: 0, '', null, undefined, NaN</span>
 <span class="c1">// If you _MUST_ test for a boolean false, then use</span>
 <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="o">===</span> <span class="kc">false</span> <span class="p">)</span> <span class="p">...</span>
 
 
 <span class="c1">// 4.1.7</span>
-<span class="c1">// When only evaluating a ref that might be null or undefined, but NOT false, "" or 0,</span>
+<span class="c1">// When only evaluating a ref that might be null or undefined, but NOT false, '' or 0,</span>
 <span class="c1">// instead of this:</span>
 <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">foo</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">)</span> <span class="p">...</span>
 
@@ -677,7 +676,7 @@ object.hasOwnProperty( prop )
 <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="o">==</span> <span class="kc">null</span> <span class="p">)</span> <span class="p">...</span>
 
 <span class="c1">// Remember, using == will match a `null` to BOTH `null` and `undefined`</span>
-<span class="c1">// but not `false`, "" or 0</span>
+<span class="c1">// but not `false`, '' or 0</span>
 <span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span>
 
 </pre></div>
@@ -692,12 +691,12 @@ object.hasOwnProperty( prop )
 
 <span class="c1">// === does not coerce type, which means that:</span>
 
-<span class="s2">"1"</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
+<span class="s1">'1'</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
 <span class="c1">// false</span>
 
 <span class="c1">// == does coerce type, which means that:</span>
 
-<span class="s2">"1"</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="s1">'1'</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
 <span class="c1">// true</span>
 
 
@@ -708,10 +707,10 @@ object.hasOwnProperty( prop )
 <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span>
 
 <span class="c1">// Truthy:</span>
-<span class="s2">"foo"</span><span class="p">,</span> <span class="mi">1</span>
+<span class="s1">'foo'</span><span class="p">,</span> <span class="mi">1</span>
 
 <span class="c1">// Falsy:</span>
-<span class="s2">""</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">,</span> <span class="k">void</span> <span class="mi">0</span>
+<span class="s1">''</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">,</span> <span class="k">void</span> <span class="mi">0</span>
 
 </pre></div>
 </li>
@@ -725,18 +724,18 @@ object.hasOwnProperty( prop )
 <span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">global</span> <span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">Module</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">"secret"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="p">{</span>
       <span class="c1">// This is some boolean property</span>
       <span class="nx">bool</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="c1">// Some string value</span>
-      <span class="nx">string</span><span class="o">:</span> <span class="s2">"a string"</span><span class="p">,</span>
+      <span class="nx">string</span><span class="o">:</span> <span class="s1">'a string'</span><span class="p">,</span>
       <span class="c1">// An array property</span>
       <span class="nx">array</span><span class="o">:</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">],</span>
       <span class="c1">// An object property</span>
       <span class="nx">object</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">lang</span><span class="o">:</span> <span class="s2">"en-Us"</span>
+        <span class="nx">lang</span><span class="o">:</span> <span class="s1">'en-Us'</span>
       <span class="p">},</span>
       <span class="nx">getData</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// get the current value of `data`</span>
@@ -807,7 +806,7 @@ object.hasOwnProperty( prop )
 <span class="kd">function</span> <span class="nx">q</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span><span class="nx">a</span><span class="o">=</span><span class="p">[],</span><span class="nx">els</span><span class="o">=</span><span class="nx">q</span><span class="p">(</span><span class="s2">"#foo"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span><span class="nx">a</span><span class="o">=</span><span class="p">[],</span><span class="nx">els</span><span class="o">=</span><span class="nx">q</span><span class="p">(</span><span class="s1">'#foo'</span><span class="p">);</span>
 <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span><span class="nx">a</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">]);}</span>
 </pre></div>
 
@@ -825,7 +824,7 @@ object.hasOwnProperty( prop )
 
 <span class="kd">var</span> <span class="nx">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="nx">elements</span> <span class="o">=</span> <span class="p">[],</span>
-  <span class="nx">matches</span> <span class="o">=</span> <span class="nx">query</span><span class="p">(</span><span class="s2">"#foo"</span><span class="p">),</span>
+  <span class="nx">matches</span> <span class="o">=</span> <span class="nx">query</span><span class="p">(</span><span class="s1">'#foo'</span><span class="p">),</span>
   <span class="nx">length</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 
 <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="nx">idx</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">idx</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
@@ -905,7 +904,7 @@ object.hasOwnProperty( prop )
   <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// Emit a throttled event</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"event"</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
 
   <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">freq</span> <span class="o">||</span> <span class="mi">100</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -931,7 +930,7 @@ object.hasOwnProperty( prop )
 
   <span class="nx">setInterval</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"event"</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
 
   <span class="p">},</span> <span class="k">this</span><span class="p">),</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">freq</span> <span class="o">||</span> <span class="mi">100</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -949,7 +948,7 @@ object.hasOwnProperty( prop )
 
   <span class="nx">setInterval</span><span class="p">(</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"event"</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
 
   <span class="p">},</span> <span class="k">this</span><span class="p">),</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">freq</span> <span class="o">||</span> <span class="mi">100</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -967,7 +966,7 @@ object.hasOwnProperty( prop )
 
   <span class="nx">setInterval</span><span class="p">(</span> <span class="nx">dojo</span><span class="p">.</span><span class="nx">hitch</span><span class="p">(</span> <span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"event"</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
 
   <span class="p">}),</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">freq</span> <span class="o">||</span> <span class="mi">100</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -992,7 +991,7 @@ object.hasOwnProperty( prop )
 
   <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="nx">self</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"event"</span><span class="p">);</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'event'</span><span class="p">);</span>
 
   <span class="p">},</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">freq</span> <span class="o">||</span> <span class="mi">100</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -1008,7 +1007,7 @@ object.hasOwnProperty( prop )
 
 <span class="kd">var</span> <span class="nx">obj</span><span class="p">;</span>
 
-<span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">f</span><span class="o">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="s2">"qux"</span> <span class="p">};</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">f</span><span class="o">:</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="s1">'qux'</span> <span class="p">};</span>
 
 <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">key</span> <span class="p">)</span> <span class="p">{</span>
 
@@ -1020,9 +1019,9 @@ object.hasOwnProperty( prop )
 
 <span class="c1">// Prints...</span>
 
-<span class="c1">// "foo"</span>
-<span class="c1">// "bar"</span>
-<span class="c1">// "qux"</span>
+<span class="c1">// 'foo'</span>
+<span class="c1">// 'bar'</span>
+<span class="c1">// 'qux'</span>
 
 </pre></div>
 
@@ -1046,10 +1045,10 @@ object.hasOwnProperty( prop )
 <span class="c1">// An example switch statement</span>
 
 <span class="k">switch</span><span class="p">(</span> <span class="nx">foo</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="s2">"alpha"</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s1">'alpha'</span><span class="o">:</span>
     <span class="nx">alpha</span><span class="p">();</span>
     <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="s2">"beta"</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s1">'beta'</span><span class="o">:</span>
     <span class="nx">beta</span><span class="p">();</span>
     <span class="k">break</span><span class="p">;</span>
   <span class="k">default</span><span class="o">:</span>
@@ -1059,7 +1058,7 @@ object.hasOwnProperty( prop )
 
 <span class="c1">// 7.A.1.2</span>
 <span class="c1">// A alternate approach that supports composability and reusability is to</span>
-<span class="c1">// use an object to store "cases" and a function to delegate:</span>
+<span class="c1">// use an object to store 'cases' and a function to delegate:</span>
 
 <span class="kd">var</span> <span class="nx">cases</span><span class="p">,</span> <span class="nx">delegator</span><span class="p">;</span>
 
@@ -1068,17 +1067,17 @@ object.hasOwnProperty( prop )
   <span class="nx">alpha</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// statements</span>
     <span class="c1">// a return</span>
-    <span class="k">return</span> <span class="p">[</span> <span class="s2">"Alpha"</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="s1">'Alpha'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
   <span class="p">},</span>
   <span class="nx">beta</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// statements</span>
     <span class="c1">// a return</span>
-    <span class="k">return</span> <span class="p">[</span> <span class="s2">"Beta"</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="s1">'Beta'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
   <span class="p">},</span>
   <span class="nx">_default</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// statements</span>
     <span class="c1">// a return</span>
-    <span class="k">return</span> <span class="p">[</span> <span class="s2">"Default"</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="s1">'Default'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">];</span>
   <span class="p">}</span>
 <span class="p">};</span>
 
@@ -1107,8 +1106,8 @@ object.hasOwnProperty( prop )
 <span class="c1">// 7.A.1.3</span>
 <span class="c1">// Put the API in 7.A.1.2 to work:</span>
 
-<span class="nx">delegator</span><span class="p">(</span> <span class="s2">"alpha"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
-<span class="c1">// [ "Alpha", 5 ]</span>
+<span class="nx">delegator</span><span class="p">(</span> <span class="s1">'alpha'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
+<span class="c1">// [ 'Alpha', 5 ]</span>
 
 <span class="c1">// Of course, the `case` key argument could easily be based</span>
 <span class="c1">// on some other arbitrary condition.</span>
@@ -1119,24 +1118,24 @@ object.hasOwnProperty( prop )
 <span class="nx">someUserInput</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span> <span class="nx">someUserInput</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="nx">caseKey</span> <span class="o">=</span> <span class="s2">"alpha"</span><span class="p">;</span>
+  <span class="nx">caseKey</span> <span class="o">=</span> <span class="s1">'alpha'</span><span class="p">;</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">caseKey</span> <span class="o">=</span> <span class="s2">"beta"</span><span class="p">;</span>
+  <span class="nx">caseKey</span> <span class="o">=</span> <span class="s1">'beta'</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// or...</span>
 
-<span class="nx">caseKey</span> <span class="o">=</span> <span class="nx">someUserInput</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="s2">"alpha"</span> <span class="o">:</span> <span class="s2">"beta"</span><span class="p">;</span>
+<span class="nx">caseKey</span> <span class="o">=</span> <span class="nx">someUserInput</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="s1">'alpha'</span> <span class="o">:</span> <span class="s1">'beta'</span><span class="p">;</span>
 
 <span class="c1">// And then...</span>
 
 <span class="nx">delegator</span><span class="p">(</span> <span class="nx">caseKey</span><span class="p">,</span> <span class="nx">someUserInput</span> <span class="p">);</span>
-<span class="c1">// [ "Beta", 1 ]</span>
+<span class="c1">// [ 'Beta', 1 ]</span>
 
 <span class="c1">// And of course...</span>
 
 <span class="nx">delegator</span><span class="p">();</span>
-<span class="c1">// [ "Default", 0 ]</span>
+<span class="c1">// [ 'Default', 0 ]</span>
 
 
 </pre></div>
@@ -1150,9 +1149,9 @@ object.hasOwnProperty( prop )
   <span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
 
   <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">ret</span> <span class="o">=</span> <span class="s2">"foo"</span><span class="p">;</span>
+    <span class="nx">ret</span> <span class="o">=</span> <span class="s1">'foo'</span><span class="p">;</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">ret</span> <span class="o">=</span> <span class="s2">"quux"</span><span class="p">;</span>
+    <span class="nx">ret</span> <span class="o">=</span> <span class="s1">'quux'</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1162,9 +1161,9 @@ object.hasOwnProperty( prop )
 <span class="kd">function</span> <span class="nx">returnEarly</span><span class="p">(</span> <span class="nx">foo</span> <span class="p">)</span> <span class="p">{</span>
 
   <span class="k">if</span> <span class="p">(</span> <span class="nx">foo</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">"foo"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="s1">'foo'</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="s2">"quux"</span><span class="p">;</span>
+  <span class="k">return</span> <span class="s1">'quux'</span><span class="p">;</span>
 <span class="p">}</span>
 
 </pre></div>
@@ -1279,15 +1278,9 @@ object.hasOwnProperty( prop )
 <h2>
 <a name="all-code-in-any-code-base-should-look-like-a-single-person-typed-it-no-matter-how-many-people-contributed" class="anchor" href="#all-code-in-any-code-base-should-look-like-a-single-person-typed-it-no-matter-how-many-people-contributed"><span class="octicon octicon-link"></span></a>All code in any code-base should look like a single person typed it, no matter how many people contributed.</h2>
 
-<h3>
-<a name="the-following-list-outlines-the-practices-that-i-use-in-all-code-that-i-am-the-original-author-of-contributions-to-projects-that-i-have-created-should-follow-these-guidelines" class="anchor" href="#the-following-list-outlines-the-practices-that-i-use-in-all-code-that-i-am-the-original-author-of-contributions-to-projects-that-i-have-created-should-follow-these-guidelines"><span class="octicon octicon-link"></span></a>The following list outlines the practices that I use in all code that I am the original author of; contributions to projects that I have created should follow these guidelines.</h3>
-
-<h3>
-<a name="i-do-not-intend-to-impose-my-style-preferences-on-other-peoples-code-or-projects-if-an-existing-common-style-exists-it-should-be-respected" class="anchor" href="#i-do-not-intend-to-impose-my-style-preferences-on-other-peoples-code-or-projects-if-an-existing-common-style-exists-it-should-be-respected"><span class="octicon octicon-link"></span></a>I do not intend to impose my style preferences on other people's code or projects; if an existing common style exists, it should be respected.</h3>
-
 <blockquote>
 <h3>
-<a name="arguments-over-style-are-pointless-there-should-be-a-style-guide-and-you-should-follow-it" class="anchor" href="#arguments-over-style-are-pointless-there-should-be-a-style-guide-and-you-should-follow-it"><span class="octicon octicon-link"></span></a>"Arguments over style are pointless. There should be a style guide, and you should follow it"</h3>
+<a name="arguments-over-style-are-pointless-there-should-be-a-style-guide-and-you-should-follow-it" class="anchor" href="#arguments-over-style-are-pointless-there-should-be-a-style-guide-and-you-should-follow-it"><span class="octicon octicon-link"></span></a>'Arguments over style are pointless. There should be a style guide, and you should follow it'</h3>
 
 <p><em>Rebecca</em> <em>Murphey</em></p>
 </blockquote>
@@ -1296,7 +1289,7 @@ object.hasOwnProperty( prop )
 
 <blockquote>
 <h3>
-<a name="part-of-being-a-good-steward-to-a-successful-project-is-realizing-that-writing-code-for-yourself-is-a-bad-idea-if-thousands-of-people-are-using-your-code-then-write-your-code-for-maximum-clarity-not-your-personal-preference-of-how-to-get-clever-within-the-spec" class="anchor" href="#part-of-being-a-good-steward-to-a-successful-project-is-realizing-that-writing-code-for-yourself-is-a-bad-idea-if-thousands-of-people-are-using-your-code-then-write-your-code-for-maximum-clarity-not-your-personal-preference-of-how-to-get-clever-within-the-spec"><span class="octicon octicon-link"></span></a>"Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."</h3>
+<a name="part-of-being-a-good-steward-to-a-successful-project-is-realizing-that-writing-code-for-yourself-is-a-bad-idea-if-thousands-of-people-are-using-your-code-then-write-your-code-for-maximum-clarity-not-your-personal-preference-of-how-to-get-clever-within-the-spec" class="anchor" href="#part-of-being-a-good-steward-to-a-successful-project-is-realizing-that-writing-code-for-yourself-is-a-bad-idea-if-thousands-of-people-are-using-your-code-then-write-your-code-for-maximum-clarity-not-your-personal-preference-of-how-to-get-clever-within-the-spec"><span class="octicon octicon-link"></span></a>'Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec.'</h3>
 
 <p><em>Idan</em> <em>Gazit</em></p>
 </blockquote>
@@ -1367,12 +1360,12 @@ object.hasOwnProperty( prop )
 <h3>
 <a name="build--deployment-process" class="anchor" href="#build--deployment-process"><span class="octicon octicon-link"></span></a>Build &amp; Deployment Process</h3>
 
-<p>Projects should always attempt to include some generic means by which source can be linted, tested and compressed in preparation for production use. For this task, <a href="https://github.com/gruntjs/grunt">grunt</a> by Ben Alman is second to none and has officially replaced the "kits/" directory of this repo.</p>
+<p>Projects should always attempt to include some generic means by which source can be linted, tested and compressed in preparation for production use. For this task, <a href="https://github.com/gruntjs/grunt">grunt</a> by Ben Alman is second to none and has officially replaced the 'kits/' directory of this repo.</p>
 
 <h3>
 <a name="test-facility" class="anchor" href="#test-facility"><span class="octicon octicon-link"></span></a>Test Facility</h3>
 
-<p>Projects <em>must</em> include some form of unit, reference, implementation or functional testing. Use case demos DO NOT QUALIFY as "tests". The following is a list of test frameworks, none of which are endorsed more than the other.</p>
+<p>Projects <em>must</em> include some form of unit, reference, implementation or functional testing. Use case demos DO NOT QUALIFY as 'tests'. The following is a list of test frameworks, none of which are endorsed more than the other.</p>
 
 <ul>
 <li><a href="http://github.com/jquery/qunit">QUnit</a></li>
