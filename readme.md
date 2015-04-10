@@ -333,10 +333,6 @@ Please use the type checking methods provided by [Underscore](http://underscorej
 
         _.isArray(variable)
 
-    Node:
-
-        elem.nodeType === 1
-
     null:
 
         _.isNull(variable)
@@ -524,7 +520,7 @@ Portal uses RequireJS to manage dependencies. Therefore files should be written 
 
     B. Faces of `this`
 
-    Beyond the generally well known use cases of `call` and `apply`, always prefer Underscore's `_.bind( functionName, this )`, for creating `BoundFunction` definitions for later invocation. Only resort to aliasing (ie. var that = this) when no preferable option is available.
+    Beyond the generally well known use cases of `call` and `apply`, always prefer [Underscore](http://underscorejs.org/)'s `_.bind( functionName, this )`, for creating `BoundFunction` definitions for later invocation. Only resort to aliasing (ie. var that = this) when no preferable option is available.
 
     ```javascript
 
