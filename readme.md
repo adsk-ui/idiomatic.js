@@ -309,7 +309,7 @@
 
 3. <a name='type'>Type Checking (Courtesy jQuery Core Style Guidelines)</a>
 
-Please use the type checking methods provided by [http://underscorejs.org/](Underscore).
+Please use the type checking methods provided by [Underscore](http://underscorejs.org/).
 
     A. Actual Types
 
@@ -425,7 +425,7 @@ Please use the type checking methods provided by [http://underscorejs.org/](Unde
 
 5. <a name='practical'>Practical Style</a>
 
-Portal uses RequireJS to manage dependencies. Therefore files should be written as AMD modules. Use [http://requirejs.org/docs/api.html#cjsmodule](simplified CommonJS wrapper) for requiring dependencies. 
+Portal uses RequireJS to manage dependencies. Therefore files should be written as AMD modules. Use [simplified CommonJS wrapper](http://requirejs.org/docs/api.html#cjsmodule) for requiring dependencies. 
 
     ```javascript
 
