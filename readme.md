@@ -612,11 +612,10 @@ Portal uses RequireJS to manage dependencies. Therefore files should be written 
     });
     ```
 10. <a name='comments'>Comments</a>
-
-    #### Single line above the code that is subject
-    #### Multiline is good
-    #### End of line comments are prohibited!
-    #### JSDoc style is good, but requires a significant time investment
+    - Single line above the code that is subject
+    - Multiline is good
+    - End of line comments are prohibited!
+    - JSDoc style is good, but requires a significant time investment
 
 ## Appendix
 
