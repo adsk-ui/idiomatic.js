@@ -1,29 +1,5 @@
 # Principles of Writing Consistent, Idiomatic JavaScript
-
-
-## This is a living document and new ideas for improving the code around us are always welcome. Contribute: fork, clone, branch, commit, push, pull request.
-
-
-## Table of Contents
-
- * [Whitespace](#whitespace)
- * [Beautiful Syntax](#spacing)
- * [Type Checking (Courtesy jQuery Core Style Guidelines)](#type)
- * [Conditional Evaluation](#cond)
- * [Practical Style](#practical)
- * [Naming](#naming)
- * [Dependency Injection](#dependency-injection)
- * [Misc](#misc)
- * [Native & Host Objects](#native)
- * [Comments](#comments)
- * [One Language Code](#language)
-
-
-
 ------------------------------------------------
-
-## Idiomatic Style Manifesto
-
 
 1. <a name='whitespace'>Whitespace</a>
   - Never mix spaces and tabs.
