@@ -239,8 +239,7 @@
     // { a: 'alpha' }
 
     ```
-
-
+    
     C. Exceptions, Slight Deviations
 
     ```javascript
@@ -310,7 +309,7 @@
 
 3. <a name='type'>Type Checking (Courtesy jQuery Core Style Guidelines)</a>
 
-Please use the type checking methods provided by Underscore.
+Please use the type checking methods provided by [http://underscorejs.org/](Underscore).
 
     A. Actual Types
 
@@ -426,7 +425,7 @@ Please use the type checking methods provided by Underscore.
 
 5. <a name='practical'>Practical Style</a>
 
-Portal uses RequireJS to manage dependencies. Therefore files should be written as AMD modules.
+Portal uses RequireJS to manage dependencies. Therefore files should be written as AMD modules. Use [http://requirejs.org/docs/api.html#cjsmodule](simplified CommonJS wrapper) for requiring dependencies. 
 
     ```javascript
 
