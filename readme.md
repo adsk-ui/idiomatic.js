@@ -27,15 +27,8 @@
 
 1. <a name='whitespace'>Whitespace</a>
   - Never mix spaces and tabs.
-  - When beginning a project, before you write any code, choose between soft indents (spaces) or real tabs, consider this **law**.
-      - For readability, set your editor's indent size to two characters &mdash; this means two spaces or two spaces representing a real tab.
-  - If your editor supports it, always work with the 'show invisibles' setting turned on. The benefits of this practice are:
-      - Enforced consistency
-      - Eliminating end of line whitespace
-      - Eliminating blank line whitespace
-      - Commits and diffs that are easier to read
+  - Configure your editor to use soft tabs with an indent size of four characters &mdash; this means four spaces or four spaces representing a real tab.
   - Use [Editorconfig](http://editorconfig.org/) when possible.  It supports most IDEs and handles most whitespace settings.
-
 
 2. <a name='spacing'>Beautiful Syntax</a>
 
@@ -309,7 +302,7 @@
 
     E. Quotes
 
-    Whether you prefer single or double shouldn't matter, there is no difference in how JavaScript parses them, but for the sake of consistency **use single quotes**. Double quotes should only be used if nested within single quotes.
+    For the sake of consistency **use single quotes**. Double quotes should only be used if nested within single quotes.
 
     F. End of Lines and Empty Lines
 
@@ -317,28 +310,29 @@
 
 3. <a name='type'>Type Checking (Courtesy jQuery Core Style Guidelines)</a>
 
+Please use the type checking methods provided by Underscore.
+
     A. Actual Types
 
     String:
 
-        typeof variable === 'string'
+        _.isString(variable)
 
     Number:
 
-        typeof variable === 'number'
+        _.isNumber(variable)
 
     Boolean:
 
-        typeof variable === 'boolean'
+        _.isBoolean(variable)
 
     Object:
 
-        typeof variable === 'object'
+        _.isObject(variable)
 
     Array:
 
-        Array.isArray( arrayLikeObject )
-        (wherever possible)
+        _.isArray(variable)
 
     Node:
 
@@ -346,27 +340,12 @@
 
     null:
 
-        variable === null
-
-    null or undefined:
-
-        variable == null
+        _.isNull(variable)
 
     undefined:
 
-      Global Variables:
+      _.isUndefined(variable)
 
-        typeof variable === 'undefined'
-
-      Local Variables:
-
-        variable === undefined
-
-      Properties:
-
-        object.prop === undefined
-        object.hasOwnProperty( prop )
-        'prop' in object
 
     B. Coerced Types
 
@@ -565,7 +544,6 @@
 
 
     ```
-
 
 
 4. <a name='cond'>Conditional Evaluation</a>
