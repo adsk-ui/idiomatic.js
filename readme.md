@@ -347,205 +347,6 @@ Please use the type checking methods provided by Underscore.
       _.isUndefined(variable)
 
 
-    B. Coerced Types
-
-    Consider the implications of the following...
-
-    Given this HTML:
-
-    ```html
-
-    <input type='text' id='foo-input' value='1'>
-
-    ```
-
-
-    ```javascript
-
-    // 3.B.1.1
-
-    // `foo` has been declared with the value `0` and its type is `number`
-    var foo = 0;
-
-    // typeof foo;
-    // 'number'
-    ...
-
-    // Somewhere later in your code, you need to update `foo`
-    // with a new value derived from an input element
-
-    foo = document.getElementById('foo-input').value;
-
-    // If you were to test `typeof foo` now, the result would be `string`
-    // This means that if you had logic that tested `foo` like:
-
-    if ( foo === 1 ) {
-
-      importantTask();
-
-    }
-
-    // `importantTask()` would never be evaluated, even though `foo` has a value of '1'
-
-
-    // 3.B.1.2
-
-    // You can preempt issues by using smart coercion with unary + or - operators:
-
-    foo = +document.getElementById('foo-input').value;
-    //    ^ unary + operator will convert its right side operand to a number
-
-    // typeof foo;
-    // 'number'
-
-    if ( foo === 1 ) {
-
-      importantTask();
-
-    }
-
-    // `importantTask()` will be called
-    ```
-
-    Here are some common cases along with coercions:
-
-
-    ```javascript
-
-    // 3.B.2.1
-
-    var number = 1,
-      string = '1',
-      bool = false;
-
-    number;
-    // 1
-
-    number + '';
-    // '1'
-
-    string;
-    // '1'
-
-    +string;
-    // 1
-
-    +string++;
-    // 1
-
-    string;
-    // 2
-
-    bool;
-    // false
-
-    +bool;
-    // 0
-
-    bool + '';
-    // 'false'
-    ```
-
-
-    ```javascript
-    // 3.B.2.2
-
-    var number = 1,
-      string = '1',
-      bool = true;
-
-    string === number;
-    // false
-
-    string === number + '';
-    // true
-
-    +string === number;
-    // true
-
-    bool === number;
-    // false
-
-    +bool === number;
-    // true
-
-    bool === string;
-    // false
-
-    bool === !!string;
-    // true
-    ```
-
-    ```javascript
-    // 3.B.2.3
-
-    var array = [ 'a', 'b', 'c' ];
-
-    !!~array.indexOf('a');
-    // true
-
-    !!~array.indexOf('b');
-    // true
-
-    !!~array.indexOf('c');
-    // true
-
-    !!~array.indexOf('d');
-    // false
-
-    // Note that the above should be considered 'unnecessarily clever'
-    // Prefer the obvious approach of comparing the returned value of
-    // indexOf, like:
-
-    if ( array.indexOf( 'a' ) >= 0 ) {
-      // ...
-    }
-    ```
-
-    ```javascript
-    // 3.B.2.4
-
-
-    var num = 2.5;
-
-    parseInt( num, 10 );
-
-    // is the same as...
-
-    ~~num;
-
-    num >> 0;
-
-    num >>> 0;
-
-    // All result in 2
-
-
-    // Keep in mind however, that negative numbers will be treated differently...
-
-    var neg = -2.5;
-
-    parseInt( neg, 10 );
-
-    // is the same as...
-
-    ~~neg;
-
-    neg >> 0;
-
-    // All result in -2
-    // However...
-
-    neg >>> 0;
-
-    // Will result in 4294967294
-
-
-
-
-    ```
-
-
 4. <a name='cond'>Conditional Evaluation</a>
 
     ```javascript
@@ -623,123 +424,26 @@ Please use the type checking methods provided by Underscore.
     ```
     ALWAYS evaluate for the best, most accurate result - the above is a guideline, not a dogma.
 
-    ```javascript
-
-    // 4.2.1
-    // Type coercion and evaluation notes
-
-    // Prefer `===` over `==` (unless the case requires loose type evaluation)
-
-    // === does not coerce type, which means that:
-
-    '1' === 1;
-    // false
-
-    // == does coerce type, which means that:
-
-    '1' == 1;
-    // true
-
-
-    // 4.2.2
-    // Booleans, Truthies & Falsies
-
-    // Booleans:
-    true, false
-
-    // Truthy:
-    'foo', 1
-
-    // Falsy:
-    '', 0, null, undefined, NaN, void 0
-
-    ```
-
-
 5. <a name='practical'>Practical Style</a>
+
+Portal uses RequireJS to manage dependencies. Therefore files should be written as AMD modules.
 
     ```javascript
 
     // 5.1.1
     // A Practical Module
 
-    (function( global ) {
-      var Module = (function() {
-
-        var data = 'secret';
-
-        return {
-          // This is some boolean property
-          bool: true,
-          // Some string value
-          string: 'a string',
-          // An array property
-          array: [ 1, 2, 3, 4 ],
-          // An object property
-          object: {
-            lang: 'en-Us'
-          },
-          getData: function() {
-            // get the current value of `data`
-            return data;
-          },
-          setData: function( value ) {
-            // set the value of `data` and return it
-            return ( data = value );
-          }
-        };
-      })();
-
-      // Other things might happen here
-
-      // expose our module to the global object
-      global.Module = Module;
-
-    })( this );
+    define(function(require){
+      var dependency = require('dependency'),
+          privateVar;
+      return {
+        public API here...
+      };
+    });
 
     ```
-
-    ```javascript
-
-    // 5.2.1
-    // A Practical Constructor
-
-    (function( global ) {
-
-      function Ctor( foo ) {
-
-        this.foo = foo;
-
-        return this;
-      }
-
-      Ctor.prototype.getFoo = function() {
-        return this.foo;
-      };
-
-      Ctor.prototype.setFoo = function( val ) {
-        return ( this.foo = val );
-      };
-
-
-      // To call constructor's without `new`, you might do this:
-      var ctor = function( foo ) {
-        return new Ctor( foo );
-      };
-
-
-      // expose our constructor to the global object
-      global.ctor = ctor;
-
-    })( this );
-
-    ```
-
-
 
 6. <a name='naming'>Naming</a>
-
-
 
     A. You are not a human code compiler/compressor, so don't try to be one.
 
@@ -756,8 +460,6 @@ Please use the type checking methods provided by Underscore.
     var i,a=[],els=q('#foo');
     for(i=0;i<els.length;i++){a.push(els[i]);}
     ```
-
-    Without a doubt, you've written code like this - hopefully that ends today.
 
     Here's the same piece of logic, but with kinder, more thoughtful naming (and a readable structure):
 
@@ -809,12 +511,6 @@ Please use the type checking methods provided by Underscore.
     PascalCase; constructor function
 
 
-    // 6.A.3.5
-    // Naming regular expressions
-
-    rDesc = //;
-
-
     // 6.A.3.6
     // From the Google Closure Library Style Guide
 
@@ -829,7 +525,7 @@ Please use the type checking methods provided by Underscore.
 
     B. Faces of `this`
 
-    Beyond the generally well known use cases of `call` and `apply`, always prefer `.bind( this )` or a functional equivalent, for creating `BoundFunction` definitions for later invocation. Only resort to aliasing when no preferable option is available.
+    Beyond the generally well known use cases of `call` and `apply`, always prefer Underscore's `_.bind( functionName, this )`, for creating `BoundFunction` definitions for later invocation. Only resort to aliasing (ie. var that = this) when no preferable option is available.
 
     ```javascript
 
@@ -840,92 +536,29 @@ Please use the type checking methods provided by Underscore.
 
       // open an async stream,
       // this will be called continuously
-      stream.read( opts.path, function( data ) {
+      stream.read( opts.path, _.bind(function( data ) {
 
         // Update this instance's current value
         // with the most recent value from the
         // data stream
         this.value = data;
 
-      }.bind(this) );
+      }, this) );
 
       // Throttle the frequency of events emitted from
       // this Device instance
-      setInterval(function() {
+      setInterval(_.bind(function() {
 
         // Emit a throttled event
         this.emit('event');
 
-      }.bind(this), opts.freq || 100 );
+      }, this), opts.freq || 100 );
     }
 
     // Just pretend we've inherited EventEmitter ;)
 
     ```
-
-    When unavailable, functional equivalents to `.bind` exist in many modern JavaScript libraries.
-
-
-    ```javascript
-    // 6.B.2
-
-    // eg. lodash/underscore, _.bind()
-    function Device( opts ) {
-
-      this.value = null;
-
-      stream.read( opts.path, _.bind(function( data ) {
-
-        this.value = data;
-
-      }, this) );
-
-      setInterval(_.bind(function() {
-
-        this.emit('event');
-
-      }, this), opts.freq || 100 );
-    }
-
-    // eg. jQuery.proxy
-    function Device( opts ) {
-
-      this.value = null;
-
-      stream.read( opts.path, jQuery.proxy(function( data ) {
-
-        this.value = data;
-
-      }, this) );
-
-      setInterval( jQuery.proxy(function() {
-
-        this.emit('event');
-
-      }, this), opts.freq || 100 );
-    }
-
-    // eg. dojo.hitch
-    function Device( opts ) {
-
-      this.value = null;
-
-      stream.read( opts.path, dojo.hitch( this, function( data ) {
-
-        this.value = data;
-
-      }) );
-
-      setInterval( dojo.hitch( this, function() {
-
-        this.emit('event');
-
-      }), opts.freq || 100 );
-    }
-
-    ```
-
-    As a last resort, create an alias to `this` using `self` as an Identifier. This is extremely bug prone and should be avoided whenever possible.
+    As a last resort, create an alias to `this` using `self` as an Identifier. This is bug prone and should be avoided whenever possible.
 
     ```javascript
 
@@ -956,32 +589,6 @@ Please use the type checking methods provided by Underscore.
 
     Several prototype methods of ES 5.1 built-ins come with a special `thisArg` signature, which should be used whenever possible
 
-    ```javascript
-
-    // 6.C.1
-
-    var obj;
-
-    obj = { f: 'foo', b: 'bar', q: 'qux' };
-
-    Object.keys( obj ).forEach(function( key ) {
-
-      // |this| now refers to `obj`
-
-      console.log( this[ key ] );
-
-    }, obj ); // <-- the last arg is `thisArg`
-
-    // Prints...
-
-    // 'foo'
-    // 'bar'
-    // 'qux'
-
-    ```
-
-    `thisArg` can be used with `Array.prototype.every`, `Array.prototype.forEach`, `Array.prototype.some`, `Array.prototype.map`, `Array.prototype.filter`
-
 7. <a name='dependency-injection'>Dependency Injection</a>
 
     When authoring AMD-style modules (as with RequireJS), long lists of dependencies should be written using [simplified CommonJS wrapping](http://requirejs.org/docs/whyamd.html#sugar) to promote readability.
@@ -1009,175 +616,12 @@ Please use the type checking methods provided by Underscore.
 
     });
     ```
-8. <a name='misc'>Misc</a>
-
-    This section will serve to illustrate ideas and concepts that should not be considered dogma, but instead exists to encourage questioning practices in an attempt to find better ways to do common JavaScript programming tasks.
-
-    A. Using `switch` should be avoided, modern method tracing will blacklist functions with switch statements
-
-    There seems to be drastic improvements to the execution of `switch` statements in latest releases of Firefox and Chrome.
-    http://jsperf.com/switch-vs-object-literal-vs-module
-
-    Notable improvements can be witnessed here as well:
-    https://github.com/rwldrn/idiomatic.js/issues/13
-
-    ```javascript
-
-    // 8.A.1.1
-    // An example switch statement
-
-    switch( foo ) {
-      case 'alpha':
-        alpha();
-        break;
-      case 'beta':
-        beta();
-        break;
-      default:
-        // something to default to
-        break;
-    }
-
-    // 8.A.1.2
-    // A alternate approach that supports composability and reusability is to
-    // use an object to store 'cases' and a function to delegate:
-
-    var cases, delegator;
-
-    // Example returns for illustration only.
-    cases = {
-      alpha: function() {
-        // statements
-        // a return
-        return [ 'Alpha', arguments.length ];
-      },
-      beta: function() {
-        // statements
-        // a return
-        return [ 'Beta', arguments.length ];
-      },
-      _default: function() {
-        // statements
-        // a return
-        return [ 'Default', arguments.length ];
-      }
-    };
-
-    delegator = function() {
-      var args, key, delegate;
-
-      // Transform arguments list into an array
-      args = [].slice.call( arguments );
-
-      // shift the case key from the arguments
-      key = args.shift();
-
-      // Assign the default case handler
-      delegate = cases._default;
-
-      // Derive the method to delegate operation to
-      if ( cases.hasOwnProperty( key ) ) {
-        delegate = cases[ key ];
-      }
-
-      // The scope arg could be set to something specific,
-      // in this case, |null| will suffice
-      return delegate.apply( null, args );
-    };
-
-    // 8.A.1.3
-    // Put the API in 7.A.1.2 to work:
-
-    delegator( 'alpha', 1, 2, 3, 4, 5 );
-    // [ 'Alpha', 5 ]
-
-    // Of course, the `case` key argument could easily be based
-    // on some other arbitrary condition.
-
-    var caseKey, someUserInput;
-
-    // Possibly some kind of form input?
-    someUserInput = 9;
-
-    if ( someUserInput > 10 ) {
-      caseKey = 'alpha';
-    } else {
-      caseKey = 'beta';
-    }
-
-    // or...
-
-    caseKey = someUserInput > 10 ? 'alpha' : 'beta';
-
-    // And then...
-
-    delegator( caseKey, someUserInput );
-    // [ 'Beta', 1 ]
-
-    // And of course...
-
-    delegator();
-    // [ 'Default', 0 ]
-
-
-    ```
-
-    B. Early returns promote code readability with negligible performance difference
-
-    ```javascript
-
-    // 7.B.1.1
-    // Bad:
-    function returnLate( foo ) {
-      var ret;
-
-      if ( foo ) {
-        ret = 'foo';
-      } else {
-        ret = 'quux';
-      }
-      return ret;
-    }
-
-    // Good:
-
-    function returnEarly( foo ) {
-
-      if ( foo ) {
-        return 'foo';
-      }
-      return 'quux';
-    }
-
-    ```
-
-
-9. <a name='native'>Native & Host Objects</a>
-
-    The basic principle here is:
-
-    ### Don't do stupid shit and everything will be ok.
-
-    To reinforce this concept, please watch the following presentation:
-
-    #### “Everything is Permitted: Extending Built-ins” by Andrew Dupont (JSConf2011, Portland, Oregon)
-
-    <iframe src='http://blip.tv/play/g_Mngr6LegI.html' width='480' height='346' frameborder='0' allowfullscreen></iframe><embed type='application/x-shockwave-flash' src='http://a.blip.tv/api.swf#g_Mngr6LegI' style='display:none'></embed>
-
-    http://blip.tv/jsconf/jsconf2011-andrew-dupont-everything-is-permitted-extending-built-ins-5211542
-
-
 10. <a name='comments'>Comments</a>
 
     #### Single line above the code that is subject
     #### Multiline is good
     #### End of line comments are prohibited!
     #### JSDoc style is good, but requires a significant time investment
-
-
-11. <a name='language'>One Language Code</a>
-
-    Programs should be written in one language, whatever that language may be, as dictated by the maintainer or maintainers.
 
 ## Appendix
 
