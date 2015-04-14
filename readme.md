@@ -274,7 +274,7 @@
 
     Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically. **TO DO**
 
-3. <a name='type'>Type Checking (Courtesy jQuery Core Style Guidelines)</a>
+3. <a name='type'>Type Checking</a>
 
 Please use the type checking methods provided by [Underscore](http://underscorejs.org/).
 
