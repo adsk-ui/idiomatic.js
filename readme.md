@@ -3,7 +3,7 @@
 
 1. <a name='whitespace'>Whitespace</a>
   - Never mix spaces and tabs.
-  - Configure your editor to use soft tabs with an indent size of four characters &mdash; this means four spaces or four spaces representing a real tab.
+  - Configure your editor to use soft tabs with an indent size of **four** characters &mdash; this means four spaces or four spaces representing a real tab.
   - Use [Editorconfig](http://editorconfig.org/) when possible.  It supports most IDEs and handles most whitespace settings.
 
 2. <a name='spacing'>Beautiful Syntax</a>
@@ -46,15 +46,6 @@
       length = 100;
 
     for ( i = 0; i < length; i++ ) {
-      // statements
-    }
-
-    // Or...
-
-    var i = 0,
-      length = 100;
-
-    for ( ; i < length; i++ ) {
       // statements
     }
 
