@@ -6,9 +6,9 @@
   - Configure your editor to use soft tabs with an indent size of **four** characters &mdash; this means four spaces or four spaces representing a real tab.
   - Use [Editorconfig](http://editorconfig.org/) when possible.  It supports most IDEs and handles most whitespace settings.
 
-2. <a name='spacing'>Beautiful Syntax</a>
+2. <a name='beautiful-syntax' href="#beautiful-syntax">Beautiful Syntax</a>
 
-    A. Parens, Braces, Linebreaks
+    <a name="parens-braces" href="#parens-braces">A. Parens, Braces, Linebreaks</a>
 
     ```javascript
 
@@ -64,7 +64,7 @@
     ```
 
 
-    B. Assignments, Declarations, Functions ( Named, Expression, Constructor )
+    <a name="assignments-declarations" href="#assignments-declarations">B. Assignments, Declarations, Functions ( Named, Expression, Constructor )</a>
 
     ```javascript
 
